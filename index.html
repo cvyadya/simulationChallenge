@@ -135,28 +135,145 @@ ul.task-list li input[type="checkbox"] {
 <section id="expected-value-after-1-flip" class="level3">
 <h3 class="anchored" data-anchor-id="expected-value-after-1-flip">1) Expected Value After 1 Flip</h3>
 <p>TODO: Explain whether the expected value of your account balance after one flip is &gt;, =, or &lt; $30,000. What is the gain in expected value as a percentage of your buy-in? Does this simple analysis suggest you should buy-in to the game?</p>
+<div id="q1-expected-value-py" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Initial Wealth: $30,000.00
+
+Expected Value After 1 Flip: $31,500.00
+Expected Gain: $1,500.00
+Gain as Percentage of Buy-in: 5.00%
+
+Comparison: Expected Value $31,500.00 &gt; Initial $30,000.00</code></pre>
+</div>
+</div>
 </section>
 <section id="single-simulation-over-time-narrative-plot" class="level3">
 <h3 class="anchored" data-anchor-id="single-simulation-over-time-narrative-plot">2) Single Simulation Over Time (Narrative + Plot)</h3>
 <p>Briefly narrate and visualize what happens to your account balance over the course of one run. Are you happy with the outcome? Why? or Why not? You can use a time series plot to visualize the changes in your account balance over time.</p>
+<div id="cell-q2-single-sim-py" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>Initial Balance: $30,000.00
+Final Balance: $583.57
+Net Change: $-29,416.43
+Return: -98.05%</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div id="q2-single-sim-py" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/q2-single-sim-py-output-2.png" width="951" height="566" class="figure-img"></p>
+<figcaption>Single simulation path of account balance</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="simulations-distribution-of-final-balances" class="level3">
 <h3 class="anchored" data-anchor-id="simulations-distribution-of-final-balances">3) 100 Simulations: Distribution of Final Balances</h3>
 <p>TODO: Visually and narratively describe the distribution of your account balance after running the 100 simulations. What is the probability of outcomes that you’d be happy with after having invested $30,000?</p>
+<div id="cell-q3-dist-100-py" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>Summary Statistics from 100 Simulations:
+  Mean Final Balance: $258,791.71
+  Median Final Balance: $3,647.30
+  P(Final &gt; $30,000): 0.210
+  Min Final Balance: $2.39
+  Max Final Balance: $13,913,343.95</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div id="q3-dist-100-py" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/q3-dist-100-py-output-2.png" width="1526" height="566" class="figure-img"></p>
+<figcaption>Distribution of final balances across 100 simulations</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="probability-balance-30000-at-age-75-original-game" class="level3">
 <h3 class="anchored" data-anchor-id="probability-balance-30000-at-age-75-original-game">4) Probability Balance &gt; $30,000 at Age 75 (Original Game)</h3>
 <p>TODO: Report the probability estimate and interpret its practical meaning.</p>
+<div id="q4-prob-original-py" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-stdout">
+<pre><code>Probability Estimate: P(Final &gt; $30,000)
+  Estimated Probability: 0.210
+
+Breakdown:
+  Simulations with Final &gt; $30,000: 21 out of 100
+  Simulations with Final ≤ $30,000: 79 out of 100
+
+Interpretation: Approximately 21.0% of the time, 
+the final balance will exceed the initial $30,000 investment.</code></pre>
+</div>
+</div>
 </section>
 <section id="modified-strategy-bet-exactly-50-each-round" class="level3">
 <h3 class="anchored" data-anchor-id="modified-strategy-bet-exactly-50-each-round">5) Modified Strategy (Bet Exactly 50% Each Round)</h3>
 <p>Instead of having the full balance at risk with each coin flip, assume only 25% of your balance is gambled each year. Compare this to the original game. Which is riskier? Which has better upside?</p>
+<div id="cell-q5-modified-50pct-py" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div id="q5-modified-50pct-py" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="index_files/figure-html/q5-modified-50pct-py-output-1.png" width="1334" height="1142" class="figure-img"></p>
+<figcaption>Modified strategy distribution (bet 25% each round)</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>============================================================
+STRATEGY COMPARISON
+============================================================
+
+Original Strategy (Full Balance at Risk):
+  Mean Final Balance: $258,791.71
+  Median Final Balance: $3,647.30
+  P(Final &gt; $30,000): 0.210
+  Min: $2.39, Max: $13,913,343.95
+
+Modified Strategy (25% of Balance at Risk):
+  Mean Final Balance: $51,426.15
+  Median Final Balance: $38,461.12
+  P(Final &gt; $30,000): 0.700
+  Min: $6,452.70, Max: $286,557.65
+
+Comparison:
+  Mean Difference: $-207,365.56 (-80.1%)
+  Median Difference: $34,813.82 (+954.5%)
+  Probability Difference: +0.490
+  Max Balance - Original: $13,913,343.95
+  Max Balance - Modified: $286,557.65</code></pre>
+</div>
+</div>
 </section>
 <section id="briefly-explain-your-findings-from-the-previous-step-in-light-of-a-concept-known-as-the-kelly-criterion" class="level3">
 <h3 class="anchored" data-anchor-id="briefly-explain-your-findings-from-the-previous-step-in-light-of-a-concept-known-as-the-kelly-criterion">6) Briefly Explain Your Findings From The Previous Step in Light of A Concept Known as the “Kelly Criterion”</h3>
 <p>What is the Kelly Criterion and how does it relate to the modified strategy?</p>
 <p>The <strong>Kelly Criterion</strong> is a formula developed by John Kelly in 1956 that determines the optimal fraction of capital to bet in repeated investment opportunities to maximize long-term growth. The formula balances growth potential against risk of ruin.</p>
 <p>For this investment game: - <strong>Original Strategy</strong>: Bets 100% of wealth each time (multipliers: 1.5 or 0.6) - <strong>Modified Strategy</strong>: Bets 25% of wealth each time (resulting multipliers: 1.125 or 0.9)</p>
+<div id="kelly-calculation" class="cell" data-execution_count="6">
+<div class="cell-output cell-output-stdout">
+<pre><code>Kelly Criterion Analysis:
+==================================================
+
+Optimal Kelly Fraction: 0.248 (24.8%)
+Maximum Expected Log Growth: 0.006211
+
+Original Strategy (100% bet):
+  Expected Log Growth: -0.052680
+  Fraction Bet: 1.00 (100%)
+
+Modified Strategy (25% bet):
+  Expected Log Growth: 0.006211
+  Fraction Bet: 0.25 (25%)
+
+Optimal Kelly Strategy:
+  Expected Log Growth: 0.006211
+  Fraction Bet: 0.248 (24.8%)
+
+Interpretation:
+  The modified strategy (25%) bets MORE than Kelly-optimal,
+  suggesting it may still be too aggressive for long-term growth.</code></pre>
+</div>
+</div>
 <p><strong>Key Insights:</strong></p>
 <ol type="1">
 <li><p><strong>Kelly Criterion Purpose</strong>: The Kelly Criterion finds the bet fraction that maximizes the expected logarithm of wealth over many periods, preventing ruin while maximizing growth.</p></li>
