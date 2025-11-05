@@ -128,7 +128,7 @@ for year in range(1, num_years + 1):
         wealth[year] = wealth[year - 1] * multiplier_tails
 
 # Create figure using object-oriented matplotlib
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(7, 5))
 
 # Plot the time series
 ax.plot(years, wealth, linewidth=2, color='steelblue', marker='o', markersize=3)
@@ -208,7 +208,7 @@ median_final = np.median(final_balances)
 prob_above_initial = np.mean(final_balances > initial_wealth)
 
 # Create figure with two subplots for better visualization
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 5))
 
 # Left plot: Histogram with log-scale bins (log-space binning)
 # This better shows the distribution when values span multiple orders of magnitude
@@ -392,7 +392,7 @@ median_original = np.median(final_balances_original)
 prob_above_initial_original = np.mean(final_balances_original > initial_wealth)
 
 # Create comparison plots
-fig, axes = plt.subplots(2, 1, figsize=(14, 12))
+fig, axes = plt.subplots(2, 1, figsize=(7, 5))
 
 # Top plot: Side-by-side histograms
 ax1 = axes[0]
@@ -567,28 +567,4 @@ else:
    - **Kelly Principle**: The Kelly Criterion suggests betting a fraction less than what might seem intuitively optimal, trading some upside for much better downside protection.
 
 The modified strategy demonstrates the Kelly Criterion principle: **better risk-adjusted returns often come from betting less than you might initially think is optimal**, especially when facing asymmetric risks (large potential losses) like in this game.
-
-
-## Professional Presentation (From Grading TLDR)
-
-- **Clear narrative:** tell the story succinctly (aim for a 1–5 minute read)
-- **Focus on insights:** risk profiles, counter-intuitive results, practical implications
-- **Professional style:** concise writing, clean visuals, hide code where appropriate (`echo: false`)
-- **Human interpretation:** explain what results mean for real decisions
-
-## Submission Checklist ✅
-
-- [ ] Quarto document written with narrative and results
-- [ ] Rendered to HTML successfully
-- [ ] Repository `simulationChallenge` created on GitHub
-- [ ] HTML committed and pushed
-- [ ] GitHub Pages enabled (Deploy from a branch → main → /(root))
-- [ ] Site accessible at `https://[your-username].github.io/simulationChallenge/`
-
-## Tips
-
-- Set random seeds for reproducibility
-- Use object-oriented plotting with `matplotlib`
-- Keep figures readable and labeled; prefer professional styling
-- Commit early and often; render locally before pushing
 
